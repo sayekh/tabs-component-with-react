@@ -1,0 +1,64 @@
+.Container {
+  & .tabs {
+    & .tabTitle {
+      background-color: #4c56af;
+      color: rgb(0, 11, 71);
+      padding: 8px 20px 6px 20px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+      width: 100px;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-top: 2px solid #000103;
+      border-bottom: none;
+      &:nth-child(2) {
+        transform: translateX(-20px);
+      }
+      &:nth-child(3) {
+        transform: translateX(-40px);
+      }
+      &:nth-child(4) {
+        transform: translateX(-60px);
+      }
+      &.selectedTab {
+        background-color: #333a7e;
+      }
+    }
+  }
+  & .tabContent {
+    border-radius: 0px 8px 8px 8px;
+    background-color: #4c56af;
+    padding: 10px 10px 30px 10px;
+    opacity: 0;
+    animation: fadeInAnimation 1s forwards;
+    & h2 {
+      margin: 10px 0px;
+    }
+    &.unMount {
+      animation: fadeOutAnimation 1s forwards;
+    }
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(60px);
+    filter: blur(5px);
+  }
+}
